@@ -6,8 +6,8 @@ EO River Tools
 .. image:: https://img.shields.io/pypi/v/eo_river.svg
         :target: https://pypi.python.org/pypi/eo_river
 
-.. image:: https://img.shields.io/travis/gena/eo_river.svg
-        :target: https://travis-ci.org/gena/eo_river
+.. image:: https://img.shields.io/travis/openearth/eo_river.svg
+        :target: https://travis-ci.org/openearth/eo_river
 
 .. image:: https://readthedocs.org/projects/eo-river/badge/?version=latest
         :target: https://eo-river.readthedocs.io/en/latest/?badge=latest
