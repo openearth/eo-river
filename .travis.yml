@@ -25,5 +25,5 @@ deploy:
     secure: PLEASE_REPLACE_ME
   on:
     tags: true
-    repo: gena/eo_river
+    repo: openearth/eo_river
     python: 3.6
