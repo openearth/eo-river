@@ -7,7 +7,6 @@ import pytest
 
 from click.testing import CliRunner
 
-from eo_river import eo_river
 from eo_river import cli
 
 

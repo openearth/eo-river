@@ -2,6 +2,10 @@
 
 """Main module."""
 
+import hydroengine as he
+
+def get_water_mask(region):
+    water_mask = he.get_water_mask(region)
 
 def generate_network(watermask):
     """    This function loads a watermask, skeletonise and return as a network
