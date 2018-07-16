@@ -4,32 +4,41 @@
 import sys
 import click
 
+import geojson
 
-@click.command()
-def main(args=None):
-    """Console script for eo_river."""
-    click.echo("Replace this message by putting your code into "
-               "eo_river.cli.main")
-    click.echo("See click documentation at http://click.pocoo.org/")
+import eo_river.algorithms
+
+
+@click.group()
+def main():
     return 0
 
 
-# @click.command(name="get-water-mask")
-# @click.option("-o", "--options-file", required=True, help="Options file in YAML format")
-# @click.option("-r", "--results-dir", required=True, help="Result directory")
-# @click.options("-l", "--local", required=False, help="Use locally installed generators")
-# def generate_model(options_file, results_dir):
-#     # two YAML docs are expected in this file, one generic and one model specific
-#     dicts = builder.parse_config(options_file)
-#     genopt, modopt = dicts
-#     # TODO validate config
-#     # TODO fill in all defaults (for now we should supply all)
-#     msg = f"Going to create a '{genopt['model']}'/'{modopt['concept']}' model, it will be placed in '{results_dir}'"
-#     general_options(genopt)
-#     click.echo(msg)
-#     click.echo(builder.get_generator_names())
+@click.command(name="get-water-mask")
+@click.option("-r", "--region", required=True,
+              help="Path of the input region as GeoJSON file.")
+@click.option("-r", "--output", required=True,
+              help="Output water mask file path as GeoJSON.")
+@click.option("--start", default="2017-01-01",
+              help="Start time (default is 2017-01-01).")
+@click.option("--stop", default="2017-06-01",
+              help="Stop time (default is 2017-06-01).")
+def get_water_mask(region, output, start, stop):
+    click.echo("Generating water mask from satellite data for %s - %s ..." %
+               (start, stop))
+
+    # read region GeoJSON file
+    region = geojson.loads(open(region, 'r').read())
+
+    # query water mask
+    water_mask = eo_river.algorithms.get_water_mask(region, start, stop)
+
+    # write results
+    f = open(output, 'w')
+    f.write(water_mask)
 
 
+main.add_command(get_water_mask)
 
 if __name__ == "__main__":
     sys.exit(main())  # pragma: no cover

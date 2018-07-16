@@ -4,8 +4,15 @@
 
 import hydroengine as he
 
-def get_water_mask(region):
-    water_mask = he.get_water_mask(region)
+
+def get_water_mask(region, start, stop, percentile=10, ndwi_threshold=0,
+                   scale=10):
+
+    water_mask = he.get_water_mask(region, start, stop, percentile,
+                                   ndwi_threshold, scale)
+
+    return water_mask
+
 
 def generate_network(watermask):
     """    This function loads a watermask, skeletonise and return as a network
@@ -20,9 +27,10 @@ def generate_network(watermask):
     """
     import ratin.network as nw
 
-    STARTEND = [[197727.048,503291.164], [195687.574,504118.171]]  # This should be derived automatically!
+    STARTEND = [[197727.048, 503291.164], [195687.574,
+                                           504118.171]]  # This should be derived automatically!
 
-    SMOOTHDEGREE, cutpoints, densi, space, horiLines = 15.0, 20, 5.0, 5.0, 15  #dense grid
+    SMOOTHDEGREE, cutpoints, densi, space, horiLines = 15.0, 20, 5.0, 5.0, 15  # dense grid
 
     # This now works for single branch
     network = Network()
@@ -30,11 +38,12 @@ def generate_network(watermask):
     network.densify(densi)
     network.construct(spacing=[space])
     network.delete(branch='1', num_of_pnts=cutpoints)
-    #Representation
+    # Representation
     network.plot(1)
-    #Network Stats:
-    network.overview(branch='1', fignum=2, smoothdegree=SMOOTHDEGREE, printoutput=False, units='radians')
-    #Save output of network file
+    # Network Stats:
+    network.overview(branch='1', fignum=2, smoothdegree=SMOOTHDEGREE,
+                     printoutput=False, units='radians')
+    # Save output of network file
     # network.save('output/network')
 
     return None

@@ -11,7 +11,7 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = ['Click>=6.0', ]
+requirements = ['Click>=6.0', 'hydroengine>=0.0.20', 'geojson']
 
 setup_requirements = ['pytest-runner', ]
 
@@ -35,7 +35,7 @@ setup(
     description="Earth Observation River Tools",
     entry_points={
         'console_scripts': [
-            'eo_river=eo_river.cli:main',
+            'eo-river=eo_river.cli:main',
         ],
     },
     install_requires=requirements,

@@ -1,4 +1,4 @@
-from eo_river import eo_river
+from eo_river import algorithms
 
 
 def test_generate_network():

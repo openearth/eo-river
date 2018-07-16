@@ -1,6 +1,7 @@
 import pytest
 
-from eo_river import eo_river
+from eo_river import algorithms
+
 
 def test_get_water_mask():
     region = {
@@ -15,9 +16,16 @@ def test_get_water_mask():
         ]]
     }
 
-    water_mask = eo_river.get_water_mask(region)
+    start = '2017-01-01'
+    stop = '2017-06-01'
 
-    pass
-    # print(water_mask)
+    # these are also defaults
+    percentile = 10
+    ndwi_threshold = 0,
+    scale = 10
+    water_mask = algorithms.get_water_mask(region, start, stop,
+                                           percentile, ndwi_threshold, scale)
+
+    print(water_mask)
 
     # assert len(water_mask['features']) > 0
