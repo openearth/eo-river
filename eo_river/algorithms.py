@@ -7,9 +7,14 @@ import hydroengine as he
 
 def get_water_mask(region, start, stop, percentile=10, ndwi_threshold=0,
                    scale=10):
-
     water_mask = he.get_water_mask(region, start, stop, percentile,
                                    ndwi_threshold, scale)
+
+    return water_mask
+
+
+def get_water_mask_network(region, start, stop):
+    water_mask = he.get_water_network(region, start, stop)
 
     return water_mask
 
