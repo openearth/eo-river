@@ -61,7 +61,7 @@ def get_water_mask(region, output, filter_bounds, start, stop, scale, crs):
               help="Scale of the figure (default is 10)")
 @click.option("--crs", default="EPSG:4326",
               help="Coordinate system as an EPSG code (default is 'EPSG:4326').")
-def get_network(region, output, filter_bounds, start, stop, scale crs):
+def get_network(region, output, filter_bounds, start, stop, scale, crs):
     click.echo("Generating water mask network from satellite data for %s - "
                "%s ..." % (start, stop))
 
@@ -94,7 +94,7 @@ def get_network(region, output, filter_bounds, start, stop, scale crs):
               help="Coordinate system as an EPSG code (default is 'EPSG:4326').")
 @click.option("--scale", default=100,
               help="Distance between features (default is 100).")
-def get_network_properties(region, output, filter_bounds, start, stop, scale crs):
+def get_network_properties(region, output, filter_bounds, start, stop, scale, crs):
     click.echo("Generating water mask network including properies from satellite data for %s - "
                "%s ..." % (start, stop))
 
