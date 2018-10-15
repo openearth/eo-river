@@ -5,18 +5,24 @@
 import hydroengine as he
 
 
-def get_water_mask(region, start, stop, percentile=10, ndwi_threshold=0,
-                   scale=10):
-    water_mask = he.get_water_mask(region, start, stop, percentile,
-                                   ndwi_threshold, scale)
+def get_water_mask(region, start, stop, scale, crs):
+    water_mask = he.get_water_mask(region, start, stop, scale, crs)
 
     return water_mask
 
 
-def get_water_mask_network(region, start, stop):
-    water_mask = he.get_water_network(region, start, stop)
+def get_water_network(region, start, stop, scale, crs):
+    water_network = he.get_water_network(region, start, stop, scale, crs)
 
-    return water_mask
+    return water_network
+
+
+def get_water_network_properties(region, start, stop, scale, step, crs):
+    water_network_properties = he.get_water_network_properties(region, start,
+                                                               stop, scale,
+                                                               step, crs)
+
+    return water_network_properties
 
 
 def generate_network(watermask):
