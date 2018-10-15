@@ -1,35 +1,75 @@
 # -*- coding: utf-8 -*-
 
-"""Console script for eo_river."""
+"""Console script for eo-river."""
 import sys
 import click
 
+import geojson
 
-@click.command()
-def main(args=None):
-    """Console script for eo_river."""
-    click.echo("Replace this message by putting your code into "
-               "eo_river.cli.main")
-    click.echo("See click documentation at http://click.pocoo.org/")
-    return 0
+import eo_river.algorithms
 
 
-# @click.command(name="get-water-mask")
-# @click.option("-o", "--options-file", required=True, help="Options file in YAML format")
-# @click.option("-r", "--results-dir", required=True, help="Result directory")
-# @click.options("-l", "--local", required=False, help="Use locally installed generators")
-# def generate_model(options_file, results_dir):
-#     # two YAML docs are expected in this file, one generic and one model specific
-#     dicts = builder.parse_config(options_file)
-#     genopt, modopt = dicts
-#     # TODO validate config
-#     # TODO fill in all defaults (for now we should supply all)
-#     msg = f"Going to create a '{genopt['model']}'/'{modopt['concept']}' model, it will be placed in '{results_dir}'"
-#     general_options(genopt)
-#     click.echo(msg)
-#     click.echo(builder.get_generator_names())
+@click.group()
+def cli():
+    pass
 
 
+@click.command(name="get-water-mask")
+@click.option("-r", "--region", required=True,
+              help="Path of the input region as GeoJSON file.")
+@click.option("-o", "--output", required=True,
+              help="Output water mask file path as GeoJSON.")
+@click.option("-f", "--filter-bounds", required=False,
+              help="Path of the input GeoJSON file defining intersecting "
+                   "geometries to be filtered.")
+@click.option("--start", default="2010-01-01",
+              help="Start time (default is 2010-01-01).")
+@click.option("--stop", default="2015-01-01",
+              help="Stop time (default is 2015-01-01).")
+def get_water_mask(region, output, filter_bounds, start, stop):
+    click.echo("Generating water mask from satellite data for %s - %s ..." %
+               (start, stop))
+
+    # read region GeoJSON file
+    region = geojson.loads(open(region, 'r').read())
+
+    # query water mask
+    water_mask = eo_river.algorithms.get_water_mask(region, start, stop)
+
+    # write results
+    with open(output, 'w') as f:
+        f.write(water_mask)
+
+
+@click.command(name="get-network")
+@click.option("-r", "--region", required=True,
+              help="Path of the input region as GeoJSON file.")
+@click.option("-o", "--output", required=True,
+              help="Output water mask file path as GeoJSON.")
+@click.option("-f", "--filter-bounds", required=False,
+              help="Path of the input GeoJSON file defining intersecting "
+                   "geometries to be filtered.")
+@click.option("--start", default="2010-01-01",
+              help="Start time (default is 2010-01-01).")
+@click.option("--stop", default="2015-01-01",
+              help="Stop time (default is 2015-01-01).")
+def get_network(region, output, filter_bounds, start, stop):
+    click.echo("Generating water mask network from satellite data for %s - "
+               "%s ..." % (start, stop))
+
+    # read region GeoJSON file
+    region = geojson.loads(open(region, 'r').read())
+
+    # query water mask network
+    network = eo_river.algorithms.get_water_mask_network(region, start, stop)
+
+    # write results
+    with open(output, 'w') as f:
+        f.write(network)
+
+
+cli.add_command(get_water_mask)
+cli.add_command(get_network)
 
 if __name__ == "__main__":
-    sys.exit(main())  # pragma: no cover
+    sys.exit(cli())  # pragma: no cover
