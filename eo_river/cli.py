@@ -61,7 +61,7 @@ def get_network(region, output, filter_bounds, start, stop):
     region = geojson.loads(open(region, 'r').read())
 
     # query water mask network
-    network = eo_river.algorithms.get_water_mask_network(region, start, stop)
+    network = eo_river.algorithms.get_water_network(region, start, stop)
 
     # write results
     with open(output, 'w') as f:
