@@ -35,7 +35,7 @@ setup(
     description="Earth Observation River Tools",
     entry_points={
         'console_scripts': [
-            'eo-river=eo_river.cli:cli',
+            'eoriver=eoriver.cli:cli',
         ],
     },
     install_requires=requirements,
@@ -44,11 +44,11 @@ setup(
     include_package_data=True,
     keywords='eoriver',
     name='eoriver',
-    packages=find_packages(include=['eo_river']),
+    packages=find_packages(include=['eoriver']),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
-    url='https://github.com/gena/eo_river',
+    url='https://github.com/gena/eo-river',
     version='0.1.3',
     zip_safe=False,
 )
