@@ -30,9 +30,9 @@ Development
 To install a new version, use the following (under Unix)
 
 .. code-block:: 
-  make bump
-  git push
-  make release
+make bump
+git push
+make release
 
 
 Then, manually release a new version on GitHub.
@@ -47,15 +47,15 @@ This should not be too critical as we do not require a very high performance.
 First, run the following (one time only):
 
 .. code-block:: 
-  conda create -n exe python=3
-  activate exe
-  pip install pandas pyinstaller pypiwin32 Click hydroengine geojson
-  echo hiddenimports = ['pandas._libs.tslibs.timedeltas'] > %CONDA_PREFIX%\Lib\site-packages\PyInstaller\hooks\hook-pandas.py
+conda create -n exe python=3
+activate exe
+pip install pandas pyinstaller pypiwin32 Click hydroengine geojson
+echo hiddenimports = ['pandas._libs.tslibs.timedeltas'] > %CONDA_PREFIX%\Lib\site-packages\PyInstaller\hooks\hook-pandas.py
    
 Then, the following command builds a new exe in EXE build\exe\dist\ directory::
 
 .. code-block:: 
-  scripts\build_exe.cmd
+scripts\build_exe.cmd
 
 
 Features
