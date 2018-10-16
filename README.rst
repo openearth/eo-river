@@ -29,7 +29,8 @@ Development
 
 To install a new version, use the following (under Unix)
 
-.. code-block:: 
+.. code-block:: sh
+
 make bump
 git push
 make release
