@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=.
 set BUILDDIR=_build
-set SPHINXPROJ=eo_river
+set SPHINXPROJ=eoriver
 
 if "%1" == "" goto help
 

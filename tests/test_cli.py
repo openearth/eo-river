@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Tests for `eo_river` package."""
+"""Tests for `eoriver` package."""
 
 import pytest
 
 from click.testing import CliRunner
 
-from eo_river import cli
+from eoriver import cli
 
 
 @pytest.fixture

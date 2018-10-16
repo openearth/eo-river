@@ -1,4 +1,4 @@
-from eo_river import algorithms
+from eoriver import algorithms
 
 
 def test_get_water_mask():
@@ -18,6 +18,7 @@ def test_get_water_mask():
     stop = '2016-01-01'
     scale = 10
     crs = 'EPSG:3857'
+
 
     water_mask = algorithms.get_water_mask(region, start, stop, scale, crs)
 

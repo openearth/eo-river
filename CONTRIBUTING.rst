@@ -15,7 +15,7 @@ Types of Contributions
 Report Bugs
 ~~~~~~~~~~~
 
-Report bugs at https://github.com/gena/eo_river/issues.
+Report bugs at https://github.com/openearth/eo-river/issues.
 
 If you are reporting a bug, please include:
 
@@ -45,7 +45,7 @@ articles, and such.
 Submit Feedback
 ~~~~~~~~~~~~~~~
 
-The best way to send feedback is to file an issue at https://github.com/gena/eo_river/issues.
+The best way to send feedback is to file an issue at https://github.com/openearth/eo-river/issues.
 
 If you are proposing a feature:
 
@@ -57,17 +57,17 @@ If you are proposing a feature:
 Get Started!
 ------------
 
-Ready to contribute? Here's how to set up `eo_river` for local development.
+Ready to contribute? Here's how to set up `eoriver` for local development.
 
-1. Fork the `eo_river` repo on GitHub.
+1. Fork the `eoriver` repo on GitHub.
 2. Clone your fork locally::
 
-    $ git clone git@github.com:your_name_here/eo_river.git
+    $ git clone git@github.com:openearth/eo-river.git
 
 3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
 
-    $ mkvirtualenv eo_river
-    $ cd eo_river/
+    $ mkvirtualenv eoriver
+    $ cd eoriver/
     $ python setup.py develop
 
 4. Create a branch for local development::
@@ -79,7 +79,7 @@ Ready to contribute? Here's how to set up `eo_river` for local development.
 5. When you're done making changes, check that your changes pass flake8 and the
    tests, including testing other Python versions with tox::
 
-    $ flake8 eo_river tests
+    $ flake8 eoriver tests
     $ python setup.py test or py.test
     $ tox
 
@@ -103,7 +103,7 @@ Before you submit a pull request, check that it meets these guidelines:
    your new functionality into a function with a docstring, and add the
    feature to the list in README.rst.
 3. The pull request should work for Python 2.7, 3.4, 3.5 and 3.6, and for PyPy. Check
-   https://travis-ci.org/gena/eo_river/pull_requests
+   https://travis-ci.org/openearth/eo-river/pull_requests
    and make sure that the tests pass for all supported Python versions.
 
 Tips
@@ -111,7 +111,7 @@ Tips
 
 To run a subset of tests::
 
-$ py.test tests.test_eo_river
+$ py.test tests.test_eoriver
 
 
 Deploying
