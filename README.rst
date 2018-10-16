@@ -27,9 +27,7 @@ Earth Observation River Tools
 Development
 -----------
 
-To install a new version, use the following (under Unix)
-
-.. code-block:: sh
+To install a new version, use the following (under Unix)::
 
 make bump
 git push
