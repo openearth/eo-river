@@ -51,11 +51,11 @@ First, run the following (one time only):
   
   pip install pandas pyinstaller pypiwin32 Click hydroengine geojson
   
-  echo hiddenimports = ['pandas._libs.tslibs.timedeltas'] > %CONDA_PREFIX%\Lib\site-packages\PyInstaller\hooks\hook-pandas.py
+  echo hiddenimports = ['pandas._libs.tslibs.timedeltas'] > %CONDA_PREFIX%/Lib/site-packages/PyInstaller/hooks/hook-pandas.py
    
-Then, the following command builds a new exe in EXE build\exe\dist\ directory:
+Then, the following command builds a new exe in EXE build/exe/dist/ directory:
 
-  scripts\build_exe.cmd
+  scripts/build_exe.cmd
 
 
 Features

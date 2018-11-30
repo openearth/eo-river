@@ -34,7 +34,7 @@ def cli():
               help="Start time (default is 2010-01-01).")
 @click.option("--stop", default="2015-01-01",
               help="Stop time (default is 2015-01-01).")
-@click.option("--scale", default=10,
+@click.option("--scale", default=10.0,
               help="Scale of the figure (default is 10)")
 @click.option("--crs", default="EPSG:4326",
               help="Coordinate system as an EPSG code (default is 'EPSG:4326').")
@@ -65,7 +65,7 @@ def get_water_mask(region, output, filter_bounds, start, stop, scale, crs):
               help="Start time (default is 2010-01-01).")
 @click.option("--stop", default="2015-01-01",
               help="Stop time (default is 2015-01-01).")
-@click.option("--scale", default=10,
+@click.option("--scale", default=10.0,
               help="Scale of the figure (default is 10)")
 @click.option("--crs", default="EPSG:4326",
               help="Coordinate system as an EPSG code (default is 'EPSG:4326').")
@@ -96,11 +96,11 @@ def get_network(region, output, filter_bounds, start, stop, scale, crs):
               help="Start time (default is 2010-01-01).")
 @click.option("--stop", default="2015-01-01",
               help="Stop time (default is 2015-01-01).")
-@click.option("--scale", default=10,
+@click.option("--scale", default=10.0,
               help="Scale of the figure (default is 10)")
 @click.option("--crs", default="EPSG:4326",
               help="Coordinate system as an EPSG code (default is 'EPSG:4326').")
-@click.option("--step", default=100,
+@click.option("--step", default=100.0,
               help="Distance between features (default is 100).")
 def get_network_properties(region, output, filter_bounds, start, stop, scale, crs, step):
     click.echo("Generating water mask network including properies from satellite data for %s - "
