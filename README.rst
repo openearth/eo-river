@@ -63,16 +63,13 @@ Features
 
 Usage:
 
-```
-eo-river get-water-mask --region=extent.json --output=water_mask.json ... --smoothen
+  eo-river get-water-mask --region=extent.json --output=water_mask.json ... --smoothen
 
-eo-river generate-network --water-mask=water_mask.json --output=network.json ... --algorithm=mda|...
+  eo-river generate-network --water-mask=water_mask.json --output=network.json ... --algorithm=mda|...
 
-eo-river generate-curvilinear-grid --network=network.json --output=grid.json ...
+  eo-river generate-curvilinear-grid --network=network.json --output=grid.json ...
 
-eo-river generate-bathymetry --network=network.json --grid=grid.json --output=bath.nc ...
-```
-
+  eo-river generate-bathymetry --network=network.json --grid=grid.json --output=bath.nc ...
 
 Credits
 -------
