@@ -24,6 +24,25 @@ Earth Observation River Tools
 * Free software: MIT license
 * Documentation: https://eo-river.readthedocs.io.
 
+
+Features
+--------
+
+
+Usage:
+
+  pip install eoriver
+
+  eoriver get-water-mask --region sues.geojson --filter-bounds filter.geojson --output sues-water.geojson
+  
+  get-water-mask
+  get-water-network
+  get-water-network-properties
+  
+
+  eoriver generate-network --water-mask=water_mask.json --output=network.json ... --algorithm=mda|...
+
+  
 Development
 -----------
 
@@ -37,39 +56,6 @@ To install a new version, use the following (under Unix):
 
 
 Then, manually release a new version on GitHub.
-
-PyInstaller
------------
-
-To build exe on Windows, we use PyInstaller. Unfortunately, with the latest version of Anaconda it generates relatively large file (~280Mb) dut to MKL libraries. This should not be too critical as we do not require a very high performance.
-
-First, run the following (one time only):
-
-  conda create -n exe python=3
-  
-  activate exe
-  
-  pip install pandas pyinstaller pypiwin32 Click hydroengine geojson
-  
-  echo hiddenimports = ['pandas._libs.tslibs.timedeltas'] > %CONDA_PREFIX%/Lib/site-packages/PyInstaller/hooks/hook-pandas.py
-   
-Then, the following command builds a new exe in EXE build/exe/dist/ directory:
-
-  scripts/build_exe.cmd
-
-
-Features
---------
-
-Usage:
-
-  eo-river get-water-mask --region=extent.json --output=water_mask.json ... --smoothen
-
-  eo-river generate-network --water-mask=water_mask.json --output=network.json ... --algorithm=mda|...
-
-  eo-river generate-curvilinear-grid --network=network.json --output=grid.json ...
-
-  eo-river generate-bathymetry --network=network.json --grid=grid.json --output=bath.nc ...
 
 Credits
 -------
