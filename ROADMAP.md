@@ -18,11 +18,11 @@ EO2RIVER / EO2FM
 
 * prepare a number of test demo cases showing functionality of the tool
 
-    Brahmaputra (braided patters every year)
-    Niger (arid, large water level changes)
-    Amazon tributaries (meandering)
-    Rhine (cloud challengind, no intra-annual changes)
-    Small River (example Phom Penh, mix OSM, JRC, HydroRivers, etc.)
+    * Brahmaputra (braided patters every year)
+    * Niger (arid, large water level changes)
+    * Amazon tributaries (meandering)
+    * Rhine (cloud challengind, no intra-annual changes)
+    * Small River (example Phom Penh, mix OSM, JRC, HydroRivers, etc.)
 
 * integration with HydroLib project, dhydamo - QGIS plugin
 
